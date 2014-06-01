@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Notification Example</title>
@@ -15,25 +16,25 @@
         // Empty
     }
 
-    // alert dialog dismissed
-    function alertDismissed() {
-        // do something
+    // process the confirmation dialog result
+    function onConfirm(button) {
+        alert('You selected button ' + button);
     }
 
-    // Show a custom alert
+    // Show a custom confirmation dialog
     //
-    function showAlert() {
-        navigator.notification.alert(
+    function showConfirm() {
+        navigator.notification.confirm(
             'You are the winner!',  // message
-            alertDismissed,         // callback
+            onConfirm,              // callback to invoke with index of button pressed
             'Game Over',            // title
-            'Done'                  // buttonName
+            'Restart,Exit'          // buttonLabels
         );
     }
 
     </script>
   </head>
   <body>
-    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+    <p><a href="#" onclick="showConfirm(); return false;">Show Confirm</a></p>
   </body>
 </html>
